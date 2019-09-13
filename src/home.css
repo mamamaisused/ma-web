@@ -1,0 +1,46 @@
+.show {
+    opacity: 0;
+    transition: all 10s ease-in 0s;
+}
+
+.hide {
+    opacity: 0;
+    transition: all 1s ease-in 0s;
+}
+
+
+  .btn.bubble {
+    content: "";
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    margin: auto;
+    border-radius: 50%;
+  }
+  .btn.bubble:active {
+    transform: scale(0.9);
+    opacity: 1;
+    transition: 0.25s;
+  }
+
+  .ant-carousel .slick-slide {
+    text-align: center;
+    height: 500px;
+    line-height: 500px;
+    background: #8895ad;
+    overflow: hidden;
+  }
+  
+  .ant-carousel .slick-slide div {
+    background-color: #8895ad;
+    display:inline-block;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+  
+  .ant-carousel .slick-slide img {
+    display:inline-block;
+  }
+
