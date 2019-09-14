@@ -1,32 +1,18 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import './index.css';
-import { Carousel } from 'antd';
-
+import HomePage from './home';
+import ExamPage from './exampage';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
 class App extends React.Component {
   render() {
-    function onChange(a, b, c) {
-      console.log(a, b, c);
-    }
     return(
-      <div>
-        <Carousel afterChange={onChange}>
-    <div>
-      <h3>1</h3>
-    </div>
-    <div>
-      <h3>2</h3>
-    </div>
-    <div>
-      <h3>3</h3>
-    </div>
-    <div>
-      <h3>4</h3>
-    </div>
-  </Carousel>
-      </div>
+      <Router>
+        <Route exact path = "/" component = {HomePage}/>
+        <Route exact path = "/exam" component = {ExamPage}/>
+      </Router>
     )
   }
 }

@@ -10,6 +10,8 @@ import level0logo from './assets/fenzhijiedian.png';
 import level1logo from './assets/block.png';
 import './home.css';
 import SubMenu from 'antd/lib/menu/SubMenu';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import AboutUsPage from './aboutus';
 
 const { Header, Content, Footer } = Layout;
 
@@ -81,7 +83,7 @@ class HomePage extends React.Component {
                             </span>}>
                             <Menu.Item style={{marginLeft:'30px'}} key="smartdevice">智能硬件</Menu.Item>
                         </SubMenu>
-                        <Menu.Item key="3">
+                        <Menu.Item key="aboutus">
                             <Icon type="mail" />
                             联系我们
                         </Menu.Item>
@@ -126,6 +128,11 @@ class SubPage extends React.Component{
                 <DisplayPage />
             )
         }
+        else if(this.props.pageindex === "aboutus"){
+            return(
+                <AboutUsPage />
+            )
+        }
         else{
             return(
             <Content style={{ padding: '30px 30px 0px 30px' }}>
@@ -161,18 +168,21 @@ class BoxContainer extends React.Component{
     }
 
     render(){
+        //方块的索引
         let boxList = [1,2];
+        //方块的背景色
         let boxColor = ['rgb(249,236,239)','rgb(237,197,206)','rgb(237,218,197)'];
         //方块的内容
         let boxContent = [EnterExam,ScratchBase];
+        //测试模态框，后来加了Router，所以不触发模态框了
         let modalText = () => {
-            if(this.state.selectedkey === 0){
+            if(this.state.selectedkey === 1){
                 return(
                 <Descriptions title="模块名称">
                     <Descriptions.Item label="适合年龄">5~10周岁</Descriptions.Item>
-                    <Descriptions.Item label="难度等级"><Rate allowHalf disabled defaultValue={3.5} /></Descriptions.Item>
-                    <Descriptions.Item label="知识点">if else, while</Descriptions.Item>
-                    <Descriptions.Item label="简介">小车遇到障碍物会自动停止并调整角度继续行驶</Descriptions.Item>
+                    <Descriptions.Item label="难度等级"><Rate allowHalf disabled defaultValue={2} /></Descriptions.Item>
+                    <Descriptions.Item label="知识点">运动,外观,声音,事件,控制</Descriptions.Item>
+                    <Descriptions.Item label="简介">Scratch的基础部分，具体内容可以看马老师的朋友圈~</Descriptions.Item>
                 </Descriptions>
                 )
             }
@@ -237,23 +247,25 @@ class Box extends React.Component{
 //第一个box的内容
 function EnterExam(){
         return(
-        <PageHeader
-            title="Level 0"
-            subTitle="入学测试"
-            avatar={{src: level0logo}}
-        >
-            <div style={{
-                display:'flex',
-                justifyContent:'center',
-                flexDirection:'column',
-                alignItems:'center'
-            }}>
-                <img src={shareico} style={{height:'100px'}}/>
-            </div>            
-            <Typography>
-                    做一些问卷调查，查看您的孩子适合什么等级的课程。
-            </Typography>
-        </PageHeader>
+            <Link to="/exam">
+                <PageHeader
+                    title="Level 0"
+                    subTitle="入学测试"
+                    avatar={{ src: level0logo }}
+                >
+                    <div style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        flexDirection: 'column',
+                        alignItems: 'center'
+                    }}>
+                        <img src={shareico} style={{ height: '100px' }} />
+                    </div>
+                    <Typography>
+                        做一些问卷调查，查看您的孩子适合什么等级的课程。
+                    </Typography>
+                </PageHeader>
+            </Link>
         )
     }
 

@@ -6,7 +6,7 @@ import HomePage from './home';
 import * as serviceWorker from './serviceWorker';
 
 //document.getElementById('root').style.cssText = "display: flex;background-color:#f0f2f5";
-ReactDOM.render(<HomePage/>, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
