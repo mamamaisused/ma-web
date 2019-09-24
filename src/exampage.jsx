@@ -12,9 +12,14 @@ const {Title} = Typography;
 
 
 class ExamPage extends React.Component{
+    //代表每个选择题的选择内容，0表示未选择
     state = {
         state0 : 0,
-        state1 : 0
+        state1 : 0,
+        state2 : 0,
+        state3 : 0,
+        state4 : 0,
+        state5 : 0,
     }
 
     submit = () => {
@@ -40,7 +45,7 @@ class ExamPage extends React.Component{
             return(
             e => {
             let _sv = e.target.value
-            let _states = [{state0: _sv},{state1: _sv}]
+            let _states = [{state0: _sv},{state1: _sv},{state2: _sv},{state3: _sv},{state4: _sv},{state5: _sv}]
             console.log('onChange',index);
             this.setState(
                 _states[index]
@@ -64,17 +69,17 @@ class ExamPage extends React.Component{
                          color={this.state.state0>0?"blue":"gray"}>
                             <Card title="您的年龄" style={{ marginLeft:"10px", width: 300 }}>
                                 <Radio.Group onChange={onChange(0)}>
-                                    <Radio value={1}>未上小学</Radio>
-                                    <Radio value={2}>1~3年级</Radio>
-                                    <Radio value={3}>4~6年级</Radio>
-                                    <Radio value={4}>中学</Radio>
+                                    <Radio value={1}>学龄前</Radio>
+                                    <Radio value={2}>1~2年级</Radio>
+                                    <Radio value={3}>3~4年级</Radio>
+                                    <Radio value={4}>5~6年级</Radio>
                                 </Radio.Group>
                             </Card>
                         </Timeline.Item>
                         <Timeline.Item
                          dot={this.state.state1>0?timelineselected:timeline}
                          color={this.state.state1>0?"blue":"gray"}>
-                            <Card title="您玩过乐高吗" 
+                            <Card title="您接触过积木类玩具吗" 
                             style={{ marginLeft:"10px", width: 300 }}
                             cover={<img alt="example" src={Legopic}/>}
                             >
@@ -86,7 +91,58 @@ class ExamPage extends React.Component{
                                 </Radio.Group>
                             </Card>
                         </Timeline.Item>
-                    </Timeline>
+                        <Timeline.Item
+                         dot={this.state.state2>0?timelineselected:timeline}
+                         color={this.state.state2>0?"blue":"gray"}>
+                            <Card title="您有编程经验吗" 
+                            style={{ marginLeft:"10px", width: 300 }}
+                            >
+                                <Radio.Group onChange={onChange(2)}>
+                                    <Radio value={1}>没有</Radio>
+                                    <Radio value={2}>学过Scratch</Radio>
+                                    <Radio value={3}>学过C语言</Radio>
+                                    <Radio value={4}>学过Python</Radio>
+                                </Radio.Group>
+                            </Card>
+                        </Timeline.Item>
+                        <Timeline.Item
+                         dot={this.state.state3>0?timelineselected:timeline}
+                         color={this.state.state3>0?"blue":"gray"}>
+                            <Card title="与他人合作完成过项目吗" 
+                            style={{ marginLeft:"10px", width: 300 }}
+                            >
+                                <Radio.Group onChange={onChange(3)}>
+                                    <Radio value={1}>是</Radio>
+                                    <Radio value={2}>否</Radio>
+                                </Radio.Group>
+                            </Card>
+                        </Timeline.Item>
+                        <Timeline.Item
+                         dot={this.state.state4>0?timelineselected:timeline}
+                         color={this.state.state4>0?"blue":"gray"}>
+                            <Card title="更倾向于实用还是美观" 
+                            style={{ marginLeft:"10px", width: 300 }}
+                            >
+                                <Radio.Group onChange={onChange(4)}>
+                                    <Radio value={1}>实用</Radio>
+                                    <Radio value={2}>美观</Radio>
+                                </Radio.Group>
+                            </Card>
+                        </Timeline.Item>
+                        <Timeline.Item
+                         dot={this.state.state5>0?timelineselected:timeline}
+                         color={this.state.state5>0?"blue":"gray"}>
+                            <Card title="遇到问题您倾向于怎么解决" 
+                            style={{ marginLeft:"10px", width: 300 }}
+                            >
+                                <Radio.Group onChange={onChange(5)}>
+                                    <Radio value={1}>自己解决</Radio>
+                                    <Radio value={2}>和小伙伴商量</Radio>
+                                    <Radio value={3}>问老师</Radio>
+                                </Radio.Group>
+                            </Card>
+                        </Timeline.Item>
+                    </Timeline>                    
                     <Button size="large" type="primary" style={{display:'flex'}} onClick={this.submit}>提交</Button>
                 </div>
             </div>

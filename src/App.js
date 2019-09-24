@@ -3,8 +3,7 @@ import 'antd/dist/antd.css';
 import './index.css';
 import HomePage from './home';
 import ExamPage from './exampage';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import { HashRouter as Router, Route, Link } from "react-router-dom";
 
 class App extends React.Component {
   render() {

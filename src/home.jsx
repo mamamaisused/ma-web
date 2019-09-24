@@ -12,6 +12,7 @@ import './home.css';
 import SubMenu from 'antd/lib/menu/SubMenu';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import AboutUsPage from './aboutus';
+import FeedBackPage from './feedbackpage';
 
 const { Header, Content, Footer } = Layout;
 
@@ -80,8 +81,10 @@ class HomePage extends React.Component {
                             <span>
                                 <Icon type="setting" />
                                 <span>课程内容</span>
-                            </span>}>
+                            </span>}
+                            >
                             <Menu.Item style={{marginLeft:'30px'}} key="smartdevice">智能硬件</Menu.Item>
+                            <Menu.Item style={{marginLeft:'30px'}} key="feedback">课后反馈</Menu.Item>
                         </SubMenu>
                         <Menu.Item key="aboutus">
                             <Icon type="mail" />
@@ -131,6 +134,11 @@ class SubPage extends React.Component{
         else if(this.props.pageindex === "aboutus"){
             return(
                 <AboutUsPage />
+            )
+        }
+        else if(this.props.pageindex === "feedback"){
+            return(
+                <FeedBackPage />
             )
         }
         else{
